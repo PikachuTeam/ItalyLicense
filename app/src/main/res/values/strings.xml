@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="twitter_consumer_key">dncDOC9BRi6TgjBgZiZeM6w1C</string>
+    <string name="twitter_consumer_secret">nht1jYecNOozv0To7i0onZJzH3JhyDM7F1LxuRgeRuaNtugxoa</string>
+    <string name="facebook_app_id">840169612709621</string>
+    <string name="banner_ad_unit_id">ca-app-pub-4338754459250860/1409094034</string>
+
+    <string name="app_name">Quiz Patente AM &amp; B</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="subject_mail_feedback">[Quiz Patente AM &amp; B] Android feedback</string>
+
+    <string name="am">AM</string>
+    <string name="b">B</string>;
+    <string name="patente_am">Patente AM</string>
+    <string name="patente_b">Patente B</string>
+    <string name="share">Condivide coi amici</string>
+    <string name="rate_us">Vota us</string>
+    <string name="feedback">Commenti</string>
+    <string name="remove_ads">Rimuovere Ads</string>
+    <string name="home">Casa</string>
+    <string name="topic">Argomento</string>
+    <string name="questions">Domande</string>
+    <string name="question">Domanda</string>
+    <string name="main_menu_item_1">ESAME PER SCHEDA</string>
+    <string name="main_menu_item_2">QUIZ PER ARGOMENTO</string>
+    <string name="main_menu_item_3">LISTA DELLE DOMANDE</string>
+    <string name="group">Seleziona un gruppo di domande</string>
+    <string name="answer_true">V</string>
+    <string name="answer_fail">F</string>
+    <string name="finish">Correggi</string>
+    <string name="total">Fatto</string>
+
+    <string name="new_exam">Nuova</string>
+    <string name="correggi_share">Condivide sul</string>
+    <string name="correggi_group_right">Rispondi giusti</string>
+    <string name="correggi_group_wrong">Rispondi falsi</string>
+    <string name="pass_exam">PROMOSSO!</string>
+    <string name="not_pass_exam">BOCCIATO!</string>
+    <string name="error">Errori</string>
+    <string name="duration">IL Teampo</string>
+    <string name="your_answer">Tuo risponde: </string>
+    <string name="correct_answer">Risponde giusti: </string>
+    <string name="exam_num">Scheda</string>
+    <string name="quick_quiz">Quiz Veloce</string>
+    <string name="correct">Corretto</string>
+
+    <string name="dialog_confirm_title">Attenzione</string>
+    <string name="exit_message">Vuoi uscire dall\'esportazione?</string>
+    <string name="cancel">Annulla</string>
+    <string name="ok">OK</string>
+
+    <string name="dialog_finish_title">Hai finito?</string>
+    <string name="dialog_finish_message">Hai risposto a {0} domande su {1}</string>
+</resources>

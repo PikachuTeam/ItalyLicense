@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="@dimen/correggi_dialog_detail_result_width"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/correggi_dialog_detail_padding">
+
+        <ImageView
+            android:id="@+id/image_traffic_signs"
+            android:layout_width="@dimen/correggi_dialog_image_height"
+            android:layout_height="@dimen/correggi_dialog_image_height"
+            android:src="@drawable/test_image"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/textView_ques_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image_traffic_signs"
+            android:text="Domanda 01"
+            android:textSize="@dimen/text_size_3"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textView_ques"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/correggi_dialog_text_ques_height"
+            android:text="Text"
+            android:textSize="@dimen/text_size_3"
+            android:textColor="@color/black"
+            android:layout_below="@+id/textView_ques_num"
+            android:layout_marginTop="@dimen/correggi_dialog_text_ques_margin_top"
+            android:background="@drawable/bg_dialog_text_ques"
+            android:padding="@dimen/correggi_dialog_text_padding" />
+
+        <TextView
+            android:id="@+id/textView_my_answer_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_ques"
+            android:text="@string/your_answer"
+            android:textSize="@dimen/text_size_4"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/correggi_dialog_text_my_answer_margin_top"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textView_my_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_my_answer_mark"
+            android:layout_alignBottom="@+id/textView_my_answer_mark"
+            android:text="V"
+            android:textSize="@dimen/text_size_4"
+            android:textColor="@color/answer_true"/>
+
+        <TextView
+            android:id="@+id/textView_correct_answer_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_my_answer_mark"
+            android:text="@string/correct_answer"
+            android:textSize="@dimen/text_size_5"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/correggi_dialog_text_correct_answer_margin_top"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_correct_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/textView_correct_answer_mark"
+            android:layout_alignBottom="@+id/textView_correct_answer_mark"
+            android:text="F"
+            android:textSize="@dimen/text_size_5"
+            android:textColor="@color/answer_fail"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout>

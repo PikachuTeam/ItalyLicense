@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialog_loading_background">#5F000000</color>
+    <color name="actionbar_background">#96281B</color>
+    <color name="button_state_pressed">#80bd645e</color>
+
+    <color name="red_main_1">#D64541</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="choose_target_background">#DA5854</color>
+
+    <color name="item_list_line_in_left_1">#C0392B</color>
+    <color name="item_list_line_in_left_2">#34495E</color>
+    <color name="item_quiz_per_argomento_section">#ffc5caf0</color>
+
+    <color name="detail_argomento_section">#d0f9930f</color>
+    <color name="tip_argomento_item_layout_target">#ff9d90ca</color>
+    <color name="answer_true">#4CD964</color>
+    <color name="answer_fail">#FF3B30</color>
+
+    <color name="do_exam_ques_line">#ffaeaeae</color>
+    <color name="do_exam_cycle">#ffaeaeae</color>
+    <color name="do_exam_min_normal">#ff43a34b</color>
+    <color name="do_exam_min_warning">#ffd7413b</color>
+    <color name="do_exam_second">#ff5f5f5f</color>
+    <color name="do_exam_highlight">#ffc9c227</color>
+
+    <color name="button_true_active">#4CD964</color>
+    <color name="button_fail_active">#FF3B30</color>
+    <color name="button_finish_active">#007AFF</color>
+    <color name="correggi_tab_active">#E74C3C</color>
+    <color name="correggi_tab_inactive">#96281B</color>
+    <color name="correggi_text_ques">#ff838284</color>
+    <color name="list_exam_random_quiz">#d0f97365</color>
+    <color name="list_exam_image_shuffle">#ff2d2d2d</color>
+
+    <color name="dialog_line">#ffe42427</color>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/correggi_item_list_height"
+    android:background="@color/white">
+
+
+    <View
+        android:id="@+id/view_line_left"
+        android:layout_width="@dimen/line_height_3"
+        android:layout_height="match_parent"
+        android:background="@color/item_list_line_in_left_1" />
+
+    <ImageView
+        android:id="@+id/image_traffic_signs"
+        android:layout_width="@dimen/correggi_item_image_height"
+        android:layout_height="@dimen/correggi_item_image_height"
+        android:src="@drawable/test_image"
+        android:layout_margin="@dimen/correggi_item_image_margin" />
+
+    <TextView
+        android:id="@+id/textView_ques_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_traffic_signs"
+        android:text="Domanda 01"
+        android:layout_margin="@dimen/correggi_item_text_ques_num_margin"
+        android:textSize="@dimen/text_size_4"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_ques_num"
+        android:layout_below="@+id/textView_ques_num"
+        android:text="I catadiottri sono dispositivi che riflettono la luce e hanno la funzione di"
+        android:layout_marginLeft="@dimen/correggi_item_text_name_margin_left"
+        android:layout_marginRight="@dimen/correggi_item_text_name_margin_right"
+        android:textSize="@dimen/text_size_3"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/correggi_text_ques" />
+
+
+    <include
+        layout="@layout/line_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/quiz_per_argomento_line_margin"
+        android:layout_marginRight="@dimen/quiz_per_argomento_line_margin"
+        android:layout_alignParentBottom="true"></include>
+
+
+    <include layout="@layout/background_highlight"></include>
+</RelativeLayout>

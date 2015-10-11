@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="@dimen/list_exam_dialog_group_width"
+        android:layout_height="@dimen/list_exam_dialog_group_small_height">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_dialog_group_exam"
+            android:divider="@null"
+            android:id="@+id/listView"></ListView>
+    </RelativeLayout>
+
+</LinearLayout>

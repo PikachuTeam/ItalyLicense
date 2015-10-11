@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/image_tagert"
+        android:layout_width="@dimen/tip_argomento_item_image_height"
+        android:layout_height="@dimen/tip_argomento_item_image_height"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/test_image"
+        android:layout_margin="@dimen/tip_argomento_item_image_margin" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tip_argomento_item_layout_target_height"
+        android:background="@color/tip_argomento_item_layout_target"
+        android:padding="@dimen/tip_argomento_item_layout_target_margin">
+
+        <TextView
+            android:id="@+id/textView_target"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_5"
+            android:text="Text"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_detail_argomento_list"
+        android:divider="@null"></ListView>
+
+</LinearLayout>

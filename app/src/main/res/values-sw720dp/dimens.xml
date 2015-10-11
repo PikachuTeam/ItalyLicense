@@ -1,0 +1,165 @@
+<!--Nexus 9-->
+<resources>
+    <dimen name="line_height_0">0.19dp</dimen>
+    <dimen name="line_height_1">1.88dp</dimen>
+    <dimen name="line_height_2">3.75dp</dimen>
+    <dimen name="line_height_3">5.62dp</dimen>
+    <dimen name="line_height_4">7.5dp</dimen>
+
+    <dimen name="text_size_0">22.5sp</dimen>
+    <dimen name="text_size_1">24.38sp</dimen>
+    <dimen name="text_size_1_5">26.25sp</dimen>
+    <dimen name="text_size_2">28.12sp</dimen>
+    <dimen name="text_size_3">30sp</dimen>
+    <dimen name="text_size_4">31.88sp</dimen>
+    <dimen name="text_size_5">33.75sp</dimen>
+    <dimen name="text_size_6">35.62sp</dimen>
+    <dimen name="text_size_7">37.5sp</dimen>
+    <dimen name="text_size_8">39.38sp</dimen>
+    <dimen name="text_size_9">41.25sp</dimen>
+    <dimen name="text_size_10">43.12sp</dimen>
+    <dimen name="text_size_11">45sp</dimen>
+    <dimen name="text_size_12">46.88sp</dimen>
+    <dimen name="text_size_13">48.75sp</dimen>
+    <dimen name="text_size_15">52.5sp</dimen>
+    <dimen name="text_size_20">60sp</dimen>
+    <dimen name="text_size_25">69.38sp</dimen>
+    <dimen name="text_size_30">78.75sp</dimen>
+
+    <!--dialog loading-->
+    <dimen name="dialog_loading_radius">15dp</dimen>
+    <dimen name="dialog_loading_height">187.5dp</dimen>
+    <dimen name="dialog_loading_progress_bar_height">71.25dp</dimen>
+
+    <!--splash screen-->
+    <dimen name="splash_logo_height">562.5dp</dimen>
+    <dimen name="splash_logo_margin">150dp</dimen>
+
+    <!--choose target-->
+    <dimen name="choose_target_item_radius">15dp</dimen>
+    <dimen name="choose_target_item_width">431.25dp</dimen>
+    <dimen name="choose_target_item_height">468.75dp</dimen>
+    <dimen name="choose_target_item_margin_top">93.75dp</dimen>
+    <dimen name="choose_target_item_image_margin">56.25dp</dimen>
+    <dimen name="choose_target_text_name_size">75sp</dimen>
+    <dimen name="choose_target_indicator_height">18.75dp</dimen>
+    <dimen name="choose_target_indicator_margin">9.38dp</dimen>
+    <dimen name="choose_target_indicator_margin_top">37.5dp</dimen>
+    <dimen name="choose_target_text_rate_us_margin_bottom">18.75dp</dimen>
+    <dimen name="choose_target_text_rate_us_margin_left">28.12dp</dimen>
+    <dimen name="choose_target_layout_share_margin_bottom">75dp</dimen>
+    <dimen name="choose_target_layout_FBTT_margin_top">37.5dp</dimen>
+    <dimen name="choose_target_image_FBTT_margin">18.75dp</dimen>
+    <dimen name="choose_target_button_share_height">65.62dp</dimen>
+
+    <!--main menu-->
+    <dimen name="main_menu_container_height">525dp</dimen>
+    <dimen name="main_menu_line_margin">37.5dp</dimen>
+    <dimen name="main_menu_image_margin">93.75dp</dimen>
+    <dimen name="main_menu_image_width_1">112.5dp</dimen>
+    <dimen name="main_menu_image_width_2">131.25dp</dimen>
+    <dimen name="main_menu_item_text_margin">243.75dp</dimen>
+    <dimen name="main_menu_button_quick_width">525dp</dimen>
+    <dimen name="main_menu_button_quick_height">121.88dp</dimen>
+    <dimen name="main_menu_button_quick_margin">131.25dp</dimen>
+
+    <!--Quiz Per Argomento-->
+    <dimen name="quiz_per_argomento_item_list_height">168.75dp</dimen>
+    <dimen name="quiz_per_argomento_item_image_height">93.75dp</dimen>
+    <dimen name="quiz_per_argomento_item_image_margin">13.12dp</dimen>
+    <dimen name="quiz_per_argomento_item_arrow_image_height">37.5dp</dimen>
+    <dimen name="quiz_per_argomento_item_arrow_image_margin">9.38dp</dimen>
+    <dimen name="quiz_per_argomento_item_text_margin">9.38dp</dimen>
+    <dimen name="quiz_per_argomento_item_no_image_text_margin">37.5dp</dimen>
+    <dimen name="quiz_per_argomento_line_margin">18.75dp</dimen>
+    <dimen name="quiz_per_argomento_item_section_list_height">112.5dp</dimen>
+    <dimen name="quiz_per_argomento_item_text_section_margin">18.75dp</dimen>
+
+    <!--Detail Argomento-->
+    <dimen name="detail_argomento_section_height">56.25dp</dimen>
+    <dimen name="detail_argomento_item_list_height">131.25dp</dimen>
+    <dimen name="detail_argomento_item_grid_height">281.25dp</dimen>
+    <dimen name="detail_argomento_item_grid_padding">0.94dp</dimen>
+    <dimen name="detail_argomento_sub_item_grid_padding">9.38dp</dimen>
+    <dimen name="detail_argomento_sub_item_grid_margin_top">18.75dp</dimen>
+    <dimen name="detail_argomento_item_grid_image_height">112.5dp</dimen>
+    <dimen name="detail_argomento_item_grid_text_margin">5.62dp</dimen>
+
+
+    <!--Tip Argomento-->
+    <dimen name="tip_argomento_item_height">131.25dp</dimen>
+    <dimen name="tip_argomento_item_image_height">225dp</dimen>
+    <dimen name="tip_argomento_item_image_margin">9.38dp</dimen>
+    <dimen name="tip_argomento_item_layout_target_height">93.75dp</dimen>
+    <dimen name="tip_argomento_item_layout_target_margin">9.38dp</dimen>
+    <dimen name="tip_argomento_item_text_answer_margin">22.5dp</dimen>
+
+    <!--Do exam-->
+    <dimen name="do_exam_scroll_height">93.75dp</dimen>
+    <dimen name="do_exam_item_ques_num_height">93.75dp</dimen>
+    <dimen name="do_exam_item_ques_num_width">103.12dp</dimen>
+    <dimen name="do_exam_item_ques_num_line_margin">11.25dp</dimen>
+    <dimen name="do_exam_text_total_margin">24.38dp</dimen>
+    <dimen name="do_exam_cycle_second_margin">15dp</dimen>
+    <dimen name="do_exam_cycle_second_height">56.25dp</dimen>
+    <dimen name="do_exam_cycle_min_height">93.75dp</dimen>
+    <dimen name="do_exam_cycle_min_margin">39.38dp</dimen>
+    <dimen name="do_exam_cycle_viewpager_height">506.25dp</dimen>
+    <dimen name="do_exam_item_content_image_height">225dp</dimen>
+    <dimen name="do_exam_item_content_text_margin">18.75dp</dimen>
+    <dimen name="do_exam_button_radius">7.5dp</dimen>
+    <dimen name="do_exam_button_height">75dp</dimen>
+    <dimen name="do_exam_button_margin">37.5dp</dimen>
+    <dimen name="do_exam_button_finish_margin_top">9.38dp</dimen>
+
+    <!--Correggi-->
+    <dimen name="correggi_layout_result_padding">18.75dp</dimen>
+    <dimen name="correggi_layout_text_info_margin">9.38dp</dimen>
+    <dimen name="correggi_button_new_exam_height">56.25dp</dimen>
+    <dimen name="correggi_button_new_exam_width">225dp</dimen>
+    <dimen name="correggi_button_new_exam_margin_right">9.38dp</dimen>
+    <dimen name="correggi_button_new_exam_margin_top">28.12dp</dimen>
+    <dimen name="correggi_tab_height">65.62dp</dimen>
+    <dimen name="correggi_tab_margin">9.38dp</dimen>
+    <dimen name="correggi_item_list_height">140.62dp</dimen>
+    <dimen name="correggi_item_image_height">84.38dp</dimen>
+    <dimen name="correggi_item_image_margin">9.38dp</dimen>
+    <dimen name="correggi_item_text_ques_num_margin">5.62dp</dimen>
+    <dimen name="correggi_item_text_name_margin_left">18.75dp</dimen>
+    <dimen name="correggi_item_text_name_margin_right">9.38dp</dimen>
+    <dimen name="correggi_dialog_detail_result_width">600dp</dimen>
+    <dimen name="correggi_dialog_detail_result_height">525dp</dimen>
+    <dimen name="correggi_dialog_detail_padding">22.5dp</dimen>
+    <dimen name="correggi_dialog_image_height">206.25dp</dimen>
+    <dimen name="correggi_dialog_text_ques_height">150dp</dimen>
+    <dimen name="correggi_dialog_text_ques_margin_top">18.75dp</dimen>
+    <dimen name="correggi_dialog_text_padding">9.38dp</dimen>
+    <dimen name="correggi_dialog_text_my_answer_margin_top">15dp</dimen>
+    <dimen name="correggi_dialog_text_correct_answer_margin_top">9.38dp</dimen>
+
+
+    <!--List exam-->
+    <dimen name="list_exam_item_height">112.5dp</dimen>
+    <dimen name="list_exam_item_text_last_score_margin">93.75dp</dimen>
+    <dimen name="list_exam_dialog_group_width">600dp</dimen>
+    <dimen name="list_exam_dialog_group_height">375dp</dimen>
+    <dimen name="list_exam_item_dialog_group_height">93.75dp</dimen>
+    <dimen name="list_exam_dialog_group_small_height">187.5dp</dimen>
+    <dimen name="list_exam_item_random_quiz_height">75dp</dimen>
+    <dimen name="list_exam_item_random_quiz_image_height">50.62dp</dimen>
+    <dimen name="list_exam_item_random_quiz_image_margin">18.75dp</dimen>
+
+    <!--Dialog-->
+    <dimen name="dialog_line_0">0.47dp</dimen>
+    <dimen name="dialog_line_1">0.94dp</dimen>
+    <!--dialog confim-->
+    <dimen name="dialog_confim_width">525dp</dimen>
+    <dimen name="dialog_confim_min_height">93.75dp</dimen>
+    <dimen name="dialog_confim_padding">22.5dp</dimen>
+    <dimen name="dialog_confim_text_message_margin">9.38dp</dimen>
+    <dimen name="dialog_confim_text_message_padding">9.38dp</dimen>
+    <dimen name="dialog_confim_button_height">75dp</dimen>
+
+    <dimen name="image_remove_ads_width">50.5dp</dimen>
+
+</resources>

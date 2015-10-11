@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_sort"
+        android:icon="@drawable/actionbar_sort_icon"
+        android:title="Sort"
+        android:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_finish"
+        android:title="@string/finish"
+        android:showAsAction="withText|always"
+        />
+</menu>

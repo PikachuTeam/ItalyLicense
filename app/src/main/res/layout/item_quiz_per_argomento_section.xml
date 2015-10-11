@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/quiz_per_argomento_item_section_list_height"
+    android:background="@color/item_quiz_per_argomento_section">
+
+    <View
+        android:id="@+id/view_line_left"
+        android:layout_width="@dimen/line_height_3"
+        android:layout_height="match_parent"
+        android:background="@color/item_list_line_in_left_1" />
+
+    <TextView
+        android:id="@+id/textView_name_section"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_traffic_signs"
+        android:layout_toLeftOf="@+id/image_arrow"
+        android:text="I catadiottri sono dispositivi che riflettono la luce e hanno la funzione di"
+        android:textSize="@dimen/text_size_5"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginRight="@dimen/quiz_per_argomento_item_text_section_margin"
+        android:layout_marginLeft="@dimen/quiz_per_argomento_item_text_section_margin"/>
+
+    <include
+        layout="@layout/line_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/quiz_per_argomento_line_margin"
+        android:layout_marginRight="@dimen/quiz_per_argomento_line_margin"
+        android:layout_alignParentBottom="true"></include>
+</RelativeLayout>

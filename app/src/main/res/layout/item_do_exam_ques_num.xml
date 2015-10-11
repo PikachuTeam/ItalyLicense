@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="@dimen/do_exam_item_ques_num_width"
+        android:layout_height="@dimen/do_exam_item_ques_num_height"
+        android:background="@color/white">
+
+        <View
+            android:layout_alignParentLeft="true"
+            android:layout_width="@dimen/line_height_0"
+            android:layout_height="match_parent"
+            android:background="@color/do_exam_ques_line"
+            android:layout_marginTop="@dimen/do_exam_item_ques_num_line_margin"
+            android:layout_marginBottom="@dimen/do_exam_item_ques_num_line_margin" />
+
+        <View
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/line_height_0"
+            android:layout_height="match_parent"
+            android:background="@color/do_exam_ques_line"
+            android:layout_marginTop="@dimen/do_exam_item_ques_num_line_margin"
+            android:layout_marginBottom="@dimen/do_exam_item_ques_num_line_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@+id/textView_ques_num"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/text_size_6"
+            android:textColor="@color/black" />
+
+
+        <View
+            android:id="@+id/view_line_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height_3"
+            android:layout_alignParentBottom="true"
+            android:background="@color/item_list_line_in_left_2" />
+
+        <include layout="@layout/background_highlight" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/correggi_layout_result_padding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PROMOSSO !"
+            android:id="@+id/textView_result"
+            android:textSize="@dimen/text_size_7"
+            android:textStyle="bold|italic"
+            android:textColor="@color/answer_true" />
+
+
+        <TextView
+            android:layout_below="@+id/textView_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fatto: 01/30"
+            android:id="@+id/textView_total"
+            android:textSize="@dimen/text_size_4"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/correggi_layout_result_padding"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_below="@+id/textView_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Errori: 15/30"
+            android:id="@+id/textView_error"
+            android:textSize="@dimen/text_size_4"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/correggi_layout_text_info_margin"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_below="@+id/textView_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IL Teampo: 22:36"
+            android:id="@+id/textView_duration"
+            android:textSize="@dimen/text_size_4"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/correggi_layout_text_info_margin"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button_new_exam"
+            android:layout_width="@dimen/correggi_button_new_exam_width"
+            android:layout_height="@dimen/correggi_button_new_exam_height"
+            android:background="@drawable/selector_button_finish"
+            android:textSize="@dimen/text_size_8"
+            android:text="@string/new_exam"
+            android:layout_alignParentRight="true"
+            android:textColor="@drawable/selector_text_answer"
+            android:layout_alignTop="@+id/textView_total" />
+
+        <LinearLayout
+            android:id="@+id/layout_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/textView_duration">
+
+            <ImageButton
+                android:id="@+id/button_shareFB"
+                android:layout_width="@dimen/choose_target_button_share_height"
+                android:layout_height="@dimen/choose_target_button_share_height"
+                android:src="@drawable/share_fb_icon"
+                android:layout_marginLeft="@dimen/choose_target_image_FBTT_margin"
+                android:background="@drawable/selector_default"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:layout_width="@dimen/choose_target_button_share_height"
+                android:layout_height="@dimen/choose_target_button_share_height"
+                android:src="@drawable/share_tt_icon"
+                android:layout_marginLeft="@dimen/choose_target_image_FBTT_margin"
+                android:background="@drawable/selector_default"
+                android:id="@+id/button_shareTT"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_alignBottom="@+id/layout_share"
+            android:layout_toLeftOf="@+id/layout_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/correggi_share"
+            android:textSize="@dimen/text_size_2"
+            android:layout_marginTop="@dimen/correggi_layout_text_info_margin"
+            android:textColor="@color/black"
+            android:layout_gravity="bottom" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/correggi_tab_height"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="@dimen/correggi_tab_margin">
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/layout_tab_correct"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/correggi_tab_active">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/correggi_group_right"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_4" />
+
+            <include layout="@layout/background_highlight"></include>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:clickable="true"
+            android:id="@+id/layout_tab_wrong"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/correggi_tab_inactive">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/correggi_group_wrong"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_4" />
+
+            <include layout="@layout/background_highlight"></include>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listView_correct"
+            tools:listitem="@layout/item_correggi"
+            android:divider="@null"></ListView>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listView_wrong"
+            tools:listitem="@layout/item_correggi"
+            android:divider="@null"></ListView>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/do_exam_scroll_height"
+            android:id="@+id/horizontalScrollView"
+            android:background="@color/white"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/layout_scroll_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+        </HorizontalScrollView>
+
+        <View
+            android:id="@+id/view_line_left"
+            android:layout_width="@dimen/line_height_3"
+            android:layout_height="@dimen/do_exam_scroll_height"
+            android:background="@color/actionbar_background" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fatto: 01/30"
+            android:id="@+id/textView_total"
+            android:textSize="@dimen/text_size_4"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/do_exam_text_total_margin"
+            android:textColor="@color/black" />
+
+
+        <RelativeLayout
+            android:layout_width="@dimen/do_exam_cycle_min_height"
+            android:layout_height="@dimen/do_exam_cycle_min_height"
+            android:background="@drawable/bg_cycle"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/do_exam_cycle_min_margin"
+            android:layout_marginRight="@dimen/do_exam_cycle_min_margin">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="59"
+                android:id="@+id/textView_min"
+                android:textSize="@dimen/text_size_10"
+                android:layout_centerInParent="true"
+                android:textColor="@color/do_exam_min_normal"
+                android:textStyle="italic" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/do_exam_cycle_second_margin"
+            android:layout_marginRight="@dimen/do_exam_cycle_second_margin"
+            android:layout_width="@dimen/do_exam_cycle_second_height"
+            android:layout_height="@dimen/do_exam_cycle_second_height"
+            android:background="@drawable/bg_cycle"
+            android:layout_alignParentRight="true">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="59"
+                android:id="@+id/textView_second"
+                android:textSize="@dimen/text_size_0"
+                android:layout_centerInParent="true"
+                android:textColor="@color/do_exam_second"
+                android:textStyle="italic" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/do_exam_cycle_viewpager_height" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/do_exam_button_height"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/button_true"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button_true"
+            android:textSize="@dimen/text_size_10"
+            android:textStyle="bold"
+            android:text="@string/answer_true"
+            android:textColor="@drawable/selector_text_answer"
+            android:layout_marginLeft="@dimen/do_exam_button_margin"
+            android:layout_marginRight="@dimen/do_exam_button_margin" />
+
+        <Button
+            android:id="@+id/button_fail"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button_fail"
+            android:textSize="@dimen/text_size_10"
+            android:textStyle="bold"
+            android:text="@string/answer_fail"
+            android:textColor="@drawable/selector_text_answer"
+            android:layout_marginLeft="@dimen/do_exam_button_margin"
+            android:layout_marginRight="@dimen/do_exam_button_margin" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/do_exam_button_height"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="@dimen/do_exam_button_finish_margin_top">
+
+        <Button
+            android:id="@+id/button_finish"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button_finish"
+            android:textSize="@dimen/text_size_10"
+            android:text="@string/finish"
+            android:textColor="@drawable/selector_text_answer"
+            android:layout_marginLeft="@dimen/do_exam_button_margin"
+            android:layout_marginRight="@dimen/do_exam_button_margin" />
+
+        <Button
+            android:visibility="invisible"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button_fail"
+            android:textSize="@dimen/text_size_10"
+            android:textStyle="bold"
+            android:text="@string/answer_fail"
+            android:textColor="@drawable/selector_text_answer"
+            android:layout_marginLeft="@dimen/do_exam_button_margin"
+            android:layout_marginRight="@dimen/do_exam_button_margin" />
+
+    </LinearLayout>
+</LinearLayout>

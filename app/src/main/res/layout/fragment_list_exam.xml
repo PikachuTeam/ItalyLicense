@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/layout_random_quiz"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_exam_item_random_quiz_height"
+        android:background="@color/list_exam_random_quiz">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/image_shuffle"
+                android:layout_width="@dimen/list_exam_item_random_quiz_image_height"
+                android:layout_height="@dimen/list_exam_item_random_quiz_image_height"
+                android:src="@drawable/shuffle"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/list_exam_item_random_quiz_image_margin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Casuale Quiz"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/text_size_7" />
+        </LinearLayout>
+
+        <include layout="@layout/background_highlight" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_list_exam"
+        android:divider="@null" />
+</LinearLayout>

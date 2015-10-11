@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red_main_1"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/choose_target_item_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/choose_target_item_margin_top" />
+
+    <TextView
+        android:id="@+id/textView_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="B"
+        android:textColor="@color/white"
+        android:textSize="@dimen/choose_target_text_name_size"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/layout_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/choose_target_indicator_margin_top"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/choose_target_indicator_height"
+            android:layout_height="@dimen/choose_target_indicator_height"
+            android:layout_margin="@dimen/choose_target_indicator_margin"
+            android:background="@drawable/bg_indicator_active"></View>
+
+        <View
+            android:layout_width="@dimen/choose_target_indicator_height"
+            android:layout_height="@dimen/choose_target_indicator_height"
+            android:layout_margin="@dimen/choose_target_indicator_margin"
+            android:background="@drawable/bg_indicator_inactive"></View>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView_rateUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/choose_target_text_rate_us_margin_bottom"
+            android:layout_marginLeft="@dimen/choose_target_text_rate_us_margin_left"
+            android:background="@drawable/selector_default"
+            android:clickable="true"
+            android:padding="@dimen/choose_target_text_rate_us_padding"
+            android:text="@string/rate_us"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_Feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/choose_target_text_rate_us_margin_bottom"
+            android:layout_marginRight="@dimen/choose_target_text_rate_us_margin_left"
+            android:background="@drawable/selector_default"
+            android:clickable="true"
+            android:padding="@dimen/choose_target_text_rate_us_padding"
+            android:text="@string/feedback"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_1"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/layout_removeAds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/selector_default"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/choose_target_text_rate_us_padding">
+
+            <ImageView
+                android:layout_width="@dimen/image_remove_ads_width"
+                android:layout_height="@dimen/image_remove_ads_width"
+                android:src="@drawable/remove_ads" />
+
+            <TextView
+                android:id="@+id/textView_removeAds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/quiz_per_argomento_item_text_margin"
+                android:text="@string/remove_ads"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_6"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/choose_target_layout_share_margin_bottom"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/share"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/choose_target_layout_FBTT_margin_top"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_shareFB"
+                    android:layout_width="@dimen/choose_target_button_share_height"
+                    android:layout_height="@dimen/choose_target_button_share_height"
+                    android:layout_marginRight="@dimen/choose_target_image_FBTT_margin"
+                    android:background="@drawable/selector_default"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/share_fb_icon" />
+
+                <ImageButton
+                    android:id="@+id/button_shareTT"
+                    android:layout_width="@dimen/choose_target_button_share_height"
+                    android:layout_height="@dimen/choose_target_button_share_height"
+                    android:layout_marginLeft="@dimen/choose_target_image_FBTT_margin"
+                    android:background="@drawable/selector_default"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/share_tt_icon" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
