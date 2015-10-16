@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -339,15 +340,14 @@ public class DoExamsFragment extends BaseFragment implements QuesNoItemWrapper.O
             answers[i] = listExams.get(i).myAnswer;
         }
 
-        CorreggiFragment fragment = new CorreggiFragment();
+        final CorreggiFragment fragment = new CorreggiFragment();
         Bundle dataBundle = new Bundle();
         dataBundle.putIntArray(BUNDLE_ANSWER, answers);
         dataBundle.putInt(BUNDLE_CATEGORY_ID, menuId);
         dataBundle.putInt(BUNDLE_SHEET_NO, sheetNo);
         dataBundle.putInt(BUNDLE_TIME, examTotalDuration - countDown);
         fragment.setArguments(dataBundle);
-
-        replaceFragment(fragment);
+        replaceFragment(fragment, true);
     }
 
     private void updateTotal() {

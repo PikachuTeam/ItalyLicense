@@ -18,8 +18,6 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.github.gorbin.asne.facebook.FacebookSocialNetwork;
-import com.github.gorbin.asne.twitter.TwitterSocialNetwork;
 import com.tatteam.patente.R;
 import com.tatteam.patente.app.BaseFragment;
 import com.tatteam.patente.control.UserManager;
@@ -28,7 +26,6 @@ import com.tatteam.patente.entity.BaseEntity;
 import com.tatteam.patente.entity.ExamsEntity;
 import com.tatteam.patente.entity.SheetEntity;
 import com.tatteam.patente.utility.ShareUtil;
-import com.tatteam.patente.utility.SharingControler;
 import com.tatteam.patente.utility.StringUtil;
 
 import java.util.ArrayList;
@@ -69,7 +66,6 @@ public class CorreggiFragment extends BaseFragment implements View.OnClickListen
     private CorreggiAdapter adapterWrong;
 
     private boolean isTabCorrectActive = true;
-    private SharingControler sharingControler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,8 +89,6 @@ public class CorreggiFragment extends BaseFragment implements View.OnClickListen
         displayResult();
         activeTab(isTabCorrectActive);
 
-        sharingControler = new SharingControler(this);
-        sharingControler.connect();
 
         return contentView;
     }
@@ -125,7 +119,6 @@ public class CorreggiFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        sharingControler.disconnect();
     }
 
     @Override
@@ -217,9 +210,7 @@ public class CorreggiFragment extends BaseFragment implements View.OnClickListen
         if (v == buttonNewExam) {
             this.onBackPressed();
         } else if (v == buttonShareFB) {
-            sharingControler.share(FacebookSocialNetwork.ID, getSharingMessage());
         } else if (v == buttonShareTT) {
-            sharingControler.share(TwitterSocialNetwork.ID, getSharingMessage());
         }
     }
 

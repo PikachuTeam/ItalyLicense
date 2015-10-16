@@ -62,6 +62,10 @@ public class BaseFragment extends Fragment {
         return this.getActivity().getActionBar();
     }
 
+    public void replaceFragment(BaseFragment newFragment, boolean isCommitAllowingStateLoss) {
+        replaceFragment(getFragmentManager(), newFragment, newFragment.getClass().getName(), null, isCommitAllowingStateLoss);
+    }
+
     public void replaceFragment(BaseFragment newFragment) {
         replaceFragment(newFragment, newFragment.getClass().getName(), null);
     }
@@ -72,12 +76,17 @@ public class BaseFragment extends Fragment {
 
     public static void replaceFragment(FragmentManager fragmentManager, BaseFragment newFragment, String fragmentTag,
                                        String transactionName) {
+        replaceFragment(fragmentManager, newFragment, fragmentTag, transactionName, false);
+    }
+
+    public static void replaceFragment(FragmentManager fragmentManager, BaseFragment newFragment, String fragmentTag,
+                                       String transactionName, boolean isCommitAllowingStateLoss) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(R.anim.fragment_slide_right_enter, R.anim.fragment_slide_left_exit,
                 R.anim.fragment_slide_left_enter, R.anim.fragment_slide_right_exit);
         transaction.replace(R.id.container, newFragment, fragmentTag);
         transaction.addToBackStack(transactionName);
-        transaction.commit();
+        int id = isCommitAllowingStateLoss ? transaction.commitAllowingStateLoss() : transaction.commit();
     }
 
 

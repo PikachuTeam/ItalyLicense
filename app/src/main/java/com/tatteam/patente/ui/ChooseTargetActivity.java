@@ -11,9 +11,7 @@ import com.tatteam.patente.billing.IabResult;
 import com.tatteam.patente.control.InAppBillingController;
 import com.tatteam.patente.billing.Inventory;
 import com.tatteam.patente.control.LocalSharedPreferManager;
-import com.tatteam.patente.database.DataSource;
 import com.tatteam.patente.ui.fragment.ChooseTargetFragment;
-import com.tatteam.patente.utility.SharingControler;
 
 /**
  * Created by ThanhNH on 2/1/2015.
@@ -24,7 +22,7 @@ public class ChooseTargetActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LocalSharedPreferManager.getInstance().init(getApplicationContext());
+        LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
 
         InAppBillingController.getInstace().init(this, new Runnable() {
             @Override
@@ -70,17 +68,12 @@ public class ChooseTargetActivity extends BaseActivity {
 
         InAppBillingController.getInstace().handleActivityResult(requestCode, resultCode, data);
 
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(SharingControler.SOCIAL_NETWORK_TAG);
-        if (fragment != null) {
-            fragment.onActivityResult(requestCode, resultCode, data);
-        }
     }
 
     @Override
     protected void onDestroy() {
-        DataSource.getInstance().destroy();
-        LocalSharedPreferManager.getInstance().destroy();
         InAppBillingController.getInstace().destroy();
+//        LocalSharedPreferManager.getInstance().destroy();
         super.onDestroy();
     }
 

@@ -131,7 +131,7 @@ public abstract class BaseActivity extends FragmentActivity {
         }
     }
 
-    private void addFragmentContent() {
+    protected void addFragmentContent() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         BaseFragment fragment = getFragmentContent();

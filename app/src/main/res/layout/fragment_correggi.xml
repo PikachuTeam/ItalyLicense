@@ -71,7 +71,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/textView_duration">
+            android:layout_alignBottom="@+id/textView_duration"
+            android:visibility="invisible">
 
             <ImageButton
                 android:id="@+id/button_shareFB"
@@ -101,7 +102,8 @@
             android:textSize="@dimen/text_size_2"
             android:layout_marginTop="@dimen/correggi_layout_text_info_margin"
             android:textColor="@color/black"
-            android:layout_gravity="bottom" />
+            android:layout_gravity="bottom"
+            android:visibility="invisible"/>
     </RelativeLayout>
 
     <LinearLayout

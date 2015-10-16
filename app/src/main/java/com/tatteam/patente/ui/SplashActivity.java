@@ -10,7 +10,6 @@ import android.os.Message;
 import com.tatteam.patente.R;
 import com.tatteam.patente.control.LocalSharedPreferManager;
 import com.tatteam.patente.database.DataSource;
-import com.tatteam.patente.utility.ShareUtil;
 
 
 public class SplashActivity extends Activity {
@@ -23,8 +22,8 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        LocalSharedPreferManager.getInstance().init(getApplicationContext());
-        DataSource.getInstance().init(getApplicationContext());
+        LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
+        DataSource.getInstance().initIfNeeded(getApplicationContext());
 
         importDatabase();
         handler = new Handler(new Handler.Callback() {

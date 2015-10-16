@@ -36,6 +36,8 @@ public class InAppBillingController {
     }
 
     public void init(Context context, final Runnable finishedRunnable) {
+        if (mHelper != null)
+            return;
         try {
             mHelper = new IabHelper(context, BASE64_KEY);
 

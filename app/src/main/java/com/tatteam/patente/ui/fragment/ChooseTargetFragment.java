@@ -3,10 +3,8 @@ package com.tatteam.patente.ui.fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -17,9 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.github.gorbin.asne.core.SocialNetwork;
-import com.github.gorbin.asne.facebook.FacebookSocialNetwork;
-import com.github.gorbin.asne.twitter.TwitterSocialNetwork;
 import com.tatteam.patente.R;
 import com.tatteam.patente.app.BaseActivity;
 import com.tatteam.patente.app.BaseFragment;
@@ -31,13 +26,6 @@ import com.tatteam.patente.control.LocalSharedPreferManager;
 import com.tatteam.patente.control.UserManager;
 import com.tatteam.patente.ui.MainMenuAcitivty;
 import com.tatteam.patente.utility.ShareUtil;
-import com.tatteam.patente.utility.SharingControler;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * Created by ThanhNH on 2/17/2015.
@@ -52,7 +40,6 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
     private ImageButton buttonShareFB;
     private ImageButton buttonShareTT;
     private View layoutRemoveAds;
-    private SharingControler sharingControler;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,17 +48,12 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
         findViews(contentView);
         viewPager.setAdapter(new ChooseTargetPagerAdapter(getActivity()));
         viewPager.setOnPageChangeListener(this);
-
-        sharingControler = new SharingControler(this);
-        sharingControler.connect();
-
         return contentView;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        sharingControler.disconnect();
     }
 
     private void findViews(View contentView) {
@@ -106,9 +88,7 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
     @Override
     public void onClick(View v) {
         if (v == buttonShareFB) {
-            sharingControler.share(FacebookSocialNetwork.ID, ShareUtil.getSharingMessage(getActivity()));
         } else if (v == buttonShareTT) {
-            sharingControler.share(TwitterSocialNetwork.ID, ShareUtil.getSharingMessage(getActivity()));
         } else if (v == textViewRateUs) {
             ShareUtil.rateApplication(getActivity());
         } else if (v == textViewFeedback) {

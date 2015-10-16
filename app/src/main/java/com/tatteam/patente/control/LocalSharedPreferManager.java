@@ -24,7 +24,7 @@ public class LocalSharedPreferManager {
         return instance;
     }
 
-    public void init(Context context) {
+    public void initIfNeeded(Context context) {
         if (pref == null) {
             pref = context.getSharedPreferences(PREF_NAME, context.MODE_PRIVATE);
             editor = pref.edit();
