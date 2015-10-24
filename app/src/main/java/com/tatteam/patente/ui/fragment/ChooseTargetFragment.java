@@ -27,6 +27,8 @@ import com.tatteam.patente.control.UserManager;
 import com.tatteam.patente.ui.MainMenuAcitivty;
 import com.tatteam.patente.utility.ShareUtil;
 
+import tatteam.com.app_common.AppCommon;
+
 /**
  * Created by ThanhNH on 2/17/2015.
  */
@@ -41,6 +43,7 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
     private ImageButton buttonShareTT;
     private View layoutRemoveAds;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -48,6 +51,8 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
         findViews(contentView);
         viewPager.setAdapter(new ChooseTargetPagerAdapter(getActivity()));
         viewPager.setOnPageChangeListener(this);
+
+
         return contentView;
     }
 
@@ -90,7 +95,8 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
         if (v == buttonShareFB) {
         } else if (v == buttonShareTT) {
         } else if (v == textViewRateUs) {
-            ShareUtil.rateApplication(getActivity());
+//            ShareUtil.rateApplication(getActivity());
+            AppCommon.getInstance().openMoreAppDialog(getActivity());
         } else if (v == textViewFeedback) {
             ShareUtil.shareToGMail(getActivity(), new String[]{ShareUtil.MAIL_ADDRESS_DEFAULT}, getString(R.string.subject_mail_feedback), "");
         } else if (v == layoutRemoveAds) {
@@ -135,10 +141,7 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
     }
 
     @Override
-    public void onPageScrollStateChanged(int i) {
-
-    }
-
+    public void onPageScrollStateChanged(int i) {}
 
     private static class ChooseTargetPagerAdapter extends PagerAdapter {
         private Context context;

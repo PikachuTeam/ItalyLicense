@@ -57,7 +57,7 @@
             android:background="@drawable/selector_default"
             android:clickable="true"
             android:padding="@dimen/choose_target_text_rate_us_padding"
-            android:text="@string/rate_us"
+            android:text="@string/more_app"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_1"
             android:textStyle="bold" />

@@ -11,6 +11,8 @@ import com.tatteam.patente.R;
 import com.tatteam.patente.control.LocalSharedPreferManager;
 import com.tatteam.patente.database.DataSource;
 
+import tatteam.com.app_common.AppCommon;
+
 
 public class SplashActivity extends Activity {
     private static final long SPLASH_DURATION = 2000;
@@ -22,8 +24,13 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        AppCommon.getInstance().initIfNeeded(getApplicationContext());
+        AppCommon.getInstance().increaseLaunchTime();
+
         LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
         DataSource.getInstance().initIfNeeded(getApplicationContext());
+
 
         importDatabase();
         handler = new Handler(new Handler.Callback() {

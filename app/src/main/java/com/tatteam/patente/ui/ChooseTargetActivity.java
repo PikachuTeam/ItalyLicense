@@ -2,26 +2,32 @@ package com.tatteam.patente.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
+import com.tatteam.patente.R;
 import com.tatteam.patente.app.BaseActivity;
 import com.tatteam.patente.app.BaseFragment;
 import com.tatteam.patente.billing.IabHelper;
 import com.tatteam.patente.billing.IabResult;
-import com.tatteam.patente.control.InAppBillingController;
 import com.tatteam.patente.billing.Inventory;
+import com.tatteam.patente.control.InAppBillingController;
 import com.tatteam.patente.control.LocalSharedPreferManager;
 import com.tatteam.patente.ui.fragment.ChooseTargetFragment;
+
+import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.util.CloseAppHandler;
 
 /**
  * Created by ThanhNH on 2/1/2015.
  */
-public class ChooseTargetActivity extends BaseActivity {
+public class ChooseTargetActivity extends BaseActivity implements CloseAppHandler.OnCloseAppListener {
+    private CloseAppHandler closeAppHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        AppCommon.getInstance().initIfNeeded(getApplicationContext());
         LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
 
         InAppBillingController.getInstace().init(this, new Runnable() {
@@ -32,6 +38,10 @@ public class ChooseTargetActivity extends BaseActivity {
                 }
             }
         });
+
+
+        closeAppHandler = new CloseAppHandler(this);
+        closeAppHandler.setListener(this);
     }
 
     private void requestCheckPurchasedItem() {
@@ -68,6 +78,27 @@ public class ChooseTargetActivity extends BaseActivity {
 
         InAppBillingController.getInstace().handleActivityResult(requestCode, resultCode, data);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        closeAppHandler.handlerKeyBack(this);
+    }
+
+
+    @Override
+    public void onRateAppDialogClose() {
+//        finish();
+    }
+
+    @Override
+    public void onTryToCloseApp() {
+        Toast.makeText(this, getString(R.string.close_message), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onReallyWantToCloseApp() {
+        finish();
     }
 
     @Override
