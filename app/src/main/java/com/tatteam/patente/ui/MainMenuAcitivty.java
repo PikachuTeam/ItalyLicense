@@ -2,7 +2,6 @@ package com.tatteam.patente.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.tatteam.patente.app.BaseActivity;

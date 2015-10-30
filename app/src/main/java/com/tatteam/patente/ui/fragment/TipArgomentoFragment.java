@@ -19,9 +19,7 @@ import com.tatteam.patente.R;
 import com.tatteam.patente.app.BaseFragment;
 import com.tatteam.patente.database.DataSource;
 import com.tatteam.patente.entity.BaseEntity;
-import com.tatteam.patente.entity.ExamsEntity;
 import com.tatteam.patente.entity.TipAgromentoEntity;
-import com.tatteam.patente.utility.StringUtil;
 
 import java.util.List;
 

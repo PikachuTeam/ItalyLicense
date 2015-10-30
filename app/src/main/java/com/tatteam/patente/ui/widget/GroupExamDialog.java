@@ -14,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tatteam.patente.R;
-import com.tatteam.patente.entity.BaseEntity;
 
 /**
  * Created by ThanhNH on 2/11/2015.

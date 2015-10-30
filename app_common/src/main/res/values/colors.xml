@@ -4,7 +4,7 @@
     <color name="drawable_flat_effect">#8db1acad</color>
     <color name="drawable_ripple_effect">#dab1acad</color>
 
-    <color name="dialog_line_1">#b6b6b6</color>
+    <color name="dialog_line">#b6b6b6</color>
     <color name="tab_selected">#8dbef2</color>
     <color name="tab_normal">#00ffffff</color>
 </resources>

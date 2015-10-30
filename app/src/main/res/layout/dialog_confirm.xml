@@ -37,7 +37,7 @@
         <View
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dialog_line_1"
-            android:background="@color/dialog_line" />
+            android:background="@color/dialog_line_1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                 <View
                     android:layout_width="@dimen/dialog_line_1"
                     android:layout_height="match_parent"
-                    android:background="@color/dialog_line"
+                    android:background="@color/dialog_line_1"
                     android:layout_alignParentRight="true" />
 
                 <TextView

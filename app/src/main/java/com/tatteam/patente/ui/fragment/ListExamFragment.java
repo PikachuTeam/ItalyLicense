@@ -4,8 +4,6 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,17 +18,13 @@ import android.widget.TextView;
 
 import com.tatteam.patente.R;
 import com.tatteam.patente.app.BaseFragment;
-import com.tatteam.patente.control.UserManager;
 import com.tatteam.patente.database.DataSource;
 import com.tatteam.patente.entity.SheetEntity;
 import com.tatteam.patente.ui.widget.GroupExamDialog;
 import com.tatteam.patente.utility.StringUtil;
 
-import java.text.Format;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.tatteam.patente.R.id.image_shuffle;
 
 /**
  * Created by ThanhNH on 2/10/2015.

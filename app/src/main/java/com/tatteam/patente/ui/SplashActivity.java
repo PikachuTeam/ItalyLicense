@@ -12,6 +12,7 @@ import com.tatteam.patente.control.LocalSharedPreferManager;
 import com.tatteam.patente.database.DataSource;
 
 import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.util.AppConstant;
 
 
 public class SplashActivity extends Activity {
@@ -27,6 +28,7 @@ public class SplashActivity extends Activity {
 
         AppCommon.getInstance().initIfNeeded(getApplicationContext());
         AppCommon.getInstance().increaseLaunchTime();
+        AppCommon.getInstance().syncAdsSmallBannerIfNeeded(AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
 
         LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
         DataSource.getInstance().initIfNeeded(getApplicationContext());

@@ -7,7 +7,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
 
 import com.tatteam.patente.R;
-import com.tatteam.patente.ui.widget.ConfirmDialog;
 
 /**
  * Created by ThanhNH on 2/1/2015.

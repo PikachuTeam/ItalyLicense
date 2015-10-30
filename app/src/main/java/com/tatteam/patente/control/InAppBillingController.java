@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-
 import com.tatteam.patente.billing.IabException;
 import com.tatteam.patente.billing.IabHelper;
 import com.tatteam.patente.billing.IabResult;

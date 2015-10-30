@@ -15,6 +15,7 @@
         android:layout_marginLeft="@dimen/item_more_app_margin_2"
         android:layout_marginRight="@dimen/item_more_app_margin_2"
         android:layout_marginTop="@dimen/item_more_app_margin_1"
+        card_view:cardUseCompatPadding="true"
         card_view:cardCornerRadius="@dimen/item_more_app_conner_radius">
 
         <tatteam.com.app_common.ui.drawable.FlatEffectDrawable
