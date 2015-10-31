@@ -26,7 +26,6 @@ public class AdsSmallBannerHandler extends AdListener {
 
     public void setup() {
         if (this.adsContainer != null) {
-
             String unitId = AppLocalSharedPreferences.getInstance().getAdsIdSmallBanner();
             if (!unitId.trim().isEmpty()) {
                 this.adView = new AdView(this.context);
@@ -37,8 +36,6 @@ public class AdsSmallBannerHandler extends AdListener {
                 AdRequest adRequest = new AdRequest.Builder().build();
                 adView.setAdListener(this);
                 adView.loadAd(adRequest);
-            } else {
-                this.adView.setVisibility(View.GONE);
             }
         }
     }
@@ -55,7 +52,9 @@ public class AdsSmallBannerHandler extends AdListener {
     @Override
     public void onAdFailedToLoad(int errorCode) {
         super.onAdFailedToLoad(errorCode);
-        adView.setVisibility(View.GONE);
+        if (adView != null) {
+            adView.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -71,7 +70,9 @@ public class AdsSmallBannerHandler extends AdListener {
     @Override
     public void onAdLoaded() {
         super.onAdLoaded();
-        adView.setVisibility(View.VISIBLE);
+        if (adView != null) {
+            adView.setVisibility(View.VISIBLE);
+        }
     }
 
 

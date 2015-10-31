@@ -33,7 +33,7 @@ import tatteam.com.app_common.util.CommonUtil;
 /**
  * Created by ThanhNH on 10/11/2015.
  */
-public class MoreAppsDialog extends Dialog implements AppConstant,View.OnClickListener {
+public class MoreAppsDialog extends Dialog implements AppConstant, View.OnClickListener {
 
     private static final int TAB_MODE_APPS = 1;
     private static final int TAB_MODE_GAMES = 2;
