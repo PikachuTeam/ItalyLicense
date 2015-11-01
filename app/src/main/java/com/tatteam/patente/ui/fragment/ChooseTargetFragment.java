@@ -41,7 +41,7 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
     private TextView textViewRemoveAds;
     private ImageButton buttonShareFB;
     private ImageButton buttonShareTT;
-    private View layoutRemoveAds;
+    private View layoutRemoveAds,layoutFeedBack,layoutMoreApp;
 
 
     @Override
@@ -71,12 +71,16 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
         buttonShareFB = (ImageButton) contentView.findViewById(R.id.button_shareFB);
         buttonShareTT = (ImageButton) contentView.findViewById(R.id.button_shareTT);
         layoutRemoveAds = contentView.findViewById(R.id.layout_removeAds);
+        layoutFeedBack = contentView.findViewById(R.id.layout_Feedback);
+        layoutMoreApp = contentView.findViewById(R.id.layout_MoreApp);
 
         buttonShareFB.setOnClickListener(this);
         buttonShareTT.setOnClickListener(this);
-        textViewRateUs.setOnClickListener(this);
-        textViewFeedback.setOnClickListener(this);
+//        textViewRateUs.setOnClickListener(this);
+//        textViewFeedback.setOnClickListener(this);
         layoutRemoveAds.setOnClickListener(this);
+        layoutFeedBack.setOnClickListener(this);
+        layoutMoreApp.setOnClickListener(this);
 
         //set underline text
         textViewRateUs.setPaintFlags(textViewRateUs.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -94,10 +98,10 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
     public void onClick(View v) {
         if (v == buttonShareFB) {
         } else if (v == buttonShareTT) {
-        } else if (v == textViewRateUs) {
+        } else if (v == layoutMoreApp) {
 //            ShareUtil.rateApplication(getActivity());
             AppCommon.getInstance().openMoreAppDialog(getActivity());
-        } else if (v == textViewFeedback) {
+        } else if (v == layoutFeedBack) {
             ShareUtil.shareToGMail(getActivity(), new String[]{ShareUtil.MAIL_ADDRESS_DEFAULT}, getString(R.string.subject_mail_feedback), "");
         } else if (v == layoutRemoveAds) {
             if (!LocalSharedPreferManager.getInstance().isPurchased()) {

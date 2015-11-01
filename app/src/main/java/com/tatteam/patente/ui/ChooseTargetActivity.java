@@ -88,7 +88,7 @@ public class ChooseTargetActivity extends BaseActivity implements CloseAppHandle
 
     @Override
     public void onRateAppDialogClose() {
-//        finish();
+        finish();
     }
 
     @Override
