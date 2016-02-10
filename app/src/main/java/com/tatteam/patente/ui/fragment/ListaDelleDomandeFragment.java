@@ -51,21 +51,22 @@ public class ListaDelleDomandeFragment extends BaseFragment {
 
     private void loadData() {
         int parentId = (UserManager.getInstance().isLicenseTypeB()) ? DataSource.B_PARENT_ID_Lista_delle_domande : DataSource.AM_PARENT_ID_Lista_delle_domande;
-        delleDomandeList = DataSource.getInstance().getCategories(parentId);
+        delleDomandeList = DataSource.getCategories(parentId);
     }
 
     @Override
     protected void setupActionBar(ActionBar actionBar) {
         super.setupActionBar(actionBar);
-        int stringRes = (UserManager.getInstance().isLicenseTypeB()) ? R.string.patente_b : R.string.patente_am;
-        actionBar.setTitle(stringRes);
+//        int stringRes = (UserManager.getInstance().isLicenseTypeB()) ? R.string.patente_b : R.string.patente_am;
+//        actionBar.setTitle(stringRes);
+        actionBar.setTitle(R.string.title_main_menu_item_3);
     }
 
 
     public void switchToDetailArgomentoFragment(int argomentoId) {
         Bundle dataBundle = new Bundle();
         dataBundle.putInt(BUNDLE_CATEGORY_ID, argomentoId);
-        if (DataSource.getInstance().havePictureOnDetailArgomento(argomentoId)) {
+        if (DataSource.havePictureOnDetailArgomento(argomentoId)) {
             GridDetailArgomentoFragment argomentoFragment = new GridDetailArgomentoFragment();
             argomentoFragment.setArguments(dataBundle);
             replaceFragment(argomentoFragment);

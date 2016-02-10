@@ -18,7 +18,6 @@ public class MainMenuAcitivty extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
-        DataSource.getInstance().initIfNeeded(getApplicationContext());
     }
 
     @Override

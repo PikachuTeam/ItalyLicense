@@ -101,7 +101,7 @@ public class DoExamsFragment extends BaseFragment implements QuesNoItemWrapper.O
         if (dataBundle != null) {
             menuId = dataBundle.getInt(BUNDLE_CATEGORY_ID, -1);
             sheetNo = dataBundle.getInt(BUNDLE_SHEET_NO, -1);
-            listExams = DataSource.getInstance().getExamList(menuId, sheetNo);
+            listExams = DataSource.getExamList(menuId, sheetNo);
         }
         listItemQues = new ArrayList<>();
         this.setupDialog();

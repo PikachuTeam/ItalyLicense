@@ -53,19 +53,20 @@ public class QuizPerArgomentoFragment extends BaseFragment {
     @Override
     protected void setupActionBar(ActionBar actionBar) {
         super.setupActionBar(actionBar);
-        int stringRes = (UserManager.getInstance().isLicenseTypeB()) ? R.string.patente_b : R.string.patente_am;
-        actionBar.setTitle(stringRes);
+//        int stringRes = (UserManager.getInstance().isLicenseTypeB()) ? R.string.patente_b : R.string.patente_am;
+//        actionBar.setTitle(stringRes);
+        actionBar.setTitle(R.string.title_main_menu_item_2);
     }
 
     private void loadData(){
         int parentId = (UserManager.getInstance().isLicenseTypeB()) ? DataSource.B_PARENT_ID_Quiz_per_argomento : DataSource.AM_PARENT_ID_Quiz_per_argomento;
-        argomentoList = DataSource.getInstance().getQuizPerArgomento(parentId);
+        argomentoList = DataSource.getQuizPerArgomento(parentId);
         if (UserManager.getInstance().isLicenseTypeB()) {
             int size = argomentoList.size();
             for (int i = size - 1; i >= 0; i--) {
                 QuizPerArgomentoEntity entity = argomentoList.get(i);
                 entity.isSection = true;
-                List<QuizPerArgomentoEntity> argomentoSubList = DataSource.getInstance().getQuizPerArgomento(entity.id);
+                List<QuizPerArgomentoEntity> argomentoSubList = DataSource.getQuizPerArgomento(entity.id);
                 argomentoList.addAll(i + 1, argomentoSubList);
             }
         }

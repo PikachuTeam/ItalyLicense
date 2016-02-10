@@ -15,6 +15,7 @@ import com.tatteam.patente.R;
 import com.tatteam.patente.control.LocalSharedPreferManager;
 
 import tatteam.com.app_common.ads.AdsSmallBannerHandler;
+import tatteam.com.app_common.util.AppConstant;
 
 /**
  * Created by ThanhNH on 2/1/2015.
@@ -34,9 +35,9 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     private void setupAdView() {
-        if (enableAdMod() &&  !LocalSharedPreferManager.getInstance().isPurchased()) {
+        if (enableAdMod() && !LocalSharedPreferManager.getInstance().isPurchased()) {
             ViewGroup adsContainer = (ViewGroup) findViewById(R.id.ads_container);
-            AdsSmallBannerHandler adsHandler = new AdsSmallBannerHandler(this,adsContainer);
+            AdsSmallBannerHandler adsHandler = new AdsSmallBannerHandler(this, adsContainer, AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
             adsHandler.setup();
         }
     }

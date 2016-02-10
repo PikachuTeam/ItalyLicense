@@ -16,10 +16,12 @@ import com.tatteam.patente.entity.TipAgromentoEntity;
 import java.util.ArrayList;
 import java.util.List;
 
+import tatteam.com.app_common.sqlite.BaseDataSource;
+
 /**
  * Created by ThanhNH on 2/1/2015.
  */
-public class DataSource {
+public class DataSource extends BaseDataSource{
 
     public static final int AM_PARENT_ID_Simulazione_quiz = 3;
     public static final int AM_PARENT_ID_Quiz_per_argomento = 4;
@@ -29,56 +31,18 @@ public class DataSource {
     public static final int B_PARENT_ID_Quiz_per_argomento = 7;
     public static final int B_PARENT_ID_Lista_delle_domande = 8;
 
-    private static DataSource instance;
-    private Context context;
-    private SQLiteDatabase sqLiteDatabase;
-
-    private DataSource() {
-    }
-
-    public static DataSource getInstance() {
-        if (instance == null) {
-            instance = new DataSource();
-        }
-        return instance;
-    }
-
-    public void initIfNeeded(Context context) {
-        if (this.context == null) {
-            this.context = context;
-        }
-    }
-
-    //import db from assets if need and open connection
-    public void createDatabaseIfNeed() {
-        this.openConnection();
-    }
-
-    private void openConnection() {
-        if (sqLiteDatabase == null || !sqLiteDatabase.isOpen()) {
-            AssetDatabaseOpenHelper assetDatabaseOpenHelper = new AssetDatabaseOpenHelper(context);
-            sqLiteDatabase = assetDatabaseOpenHelper.openDatabase();
-        }
-    }
-
-    private void closeConnection() {
-        if (sqLiteDatabase != null && sqLiteDatabase.isOpen()) {
-            sqLiteDatabase.close();
-        }
-    }
-
-
-    //------- query data from database
-
-    public int getRandomSheetNo(int categoryId) {
+    public static int getRandomSheetNo(int categoryId) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT Exams.sheetNo FROM Exams where Exams.CategoryID = ? ORDER BY RANDOM() LIMIT 1", new String[]{String.valueOf(categoryId)});
         cursor.moveToFirst();
         int sheetNo = cursor.getInt(0);
         cursor.close();
+        closeConnection();
         return sheetNo;
     }
 
-    public void saveLastScoreInfo(SheetEntity sheetEntity) {
+    public static void saveLastScoreInfo(SheetEntity sheetEntity) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         ContentValues values = new ContentValues();
         values.put("CategoryId", sheetEntity.categoryId);
         values.put("SheetNo", sheetEntity.sheetNo);
@@ -91,20 +55,23 @@ public class DataSource {
         } else {
             sqLiteDatabase.insert("ExamLogs", null, values);
         }
-
+        closeConnection();
     }
 
-    public boolean isExistLastScoreInfo(int categoryId, int sheetNo) {
+    public static boolean isExistLastScoreInfo(int categoryId, int sheetNo) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         boolean exist = false;
         Cursor cursor = sqLiteDatabase.rawQuery("select * from ExamLogs where ExamLogs.categoryID = ? and ExamLogs.sheetNo = ?", new String[]{String.valueOf(categoryId), String.valueOf(sheetNo)});
         if (cursor.getCount() > 0) {
             exist = true;
         }
         cursor.close();
+        closeConnection();
         return exist;
     }
 
-    public List<SheetEntity> getListExam(int categoryId, int fromSheetNo, int toSheetNo) {
+    public static List<SheetEntity> getListExam(int categoryId, int fromSheetNo, int toSheetNo) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         List<SheetEntity> list = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery("select Exams.CategoryID, Exams.SheetNo, ExamLogs.totalQuestion,ExamLogs.totalCorrectAnswer, ExamLogs.Duration " +
                         "from Exams  left join ExamLogs on (Exams.categoryID = ExamLogs.categoryID and Exams.sheetNo = ExamLogs.sheetNo)" +
@@ -122,10 +89,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
-    public List<SheetEntity> getListExam(int categoryId) {
+    public static List<SheetEntity> getListExam(int categoryId) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         List<SheetEntity> list = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery("select Exams.CategoryID, Exams.SheetNo, ExamLogs.totalQuestion,ExamLogs.totalCorrectAnswer, ExamLogs.Duration from Exams  left join ExamLogs on (Exams.categoryID = ExamLogs.categoryID and Exams.sheetNo = ExamLogs.sheetNo) where Exams.CategoryID = ? group by Exams.sheetNo", new String[]{String.valueOf(categoryId)});
         cursor.moveToFirst();
@@ -140,10 +109,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
-    public TipAgromentoEntity getTipAgromento(int categoryId) {
+    public static TipAgromentoEntity getTipAgromento(int categoryId) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         TipAgromentoEntity tipAgromentoEntity = new TipAgromentoEntity();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from Questions where Questions.categoryID = ?", new String[]{String.valueOf(categoryId)});
         cursor.moveToFirst();
@@ -157,10 +128,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return tipAgromentoEntity;
     }
 
-    public List<QuizPerArgomentoEntity> getQuizPerArgomento(int categoryId) {
+    public  static List<QuizPerArgomentoEntity> getQuizPerArgomento(int categoryId) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         List<QuizPerArgomentoEntity> list = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery("Select Categories.ID, Categories.Name,Images.ImageData from Categories left join Images on (Categories.imageID = Images.ID) where Categories.parentID = ?", new String[]{String.valueOf(categoryId)});
         cursor.moveToFirst();
@@ -177,10 +150,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
-    public List<BaseEntity> getCategories(int categoryId) {
+    public static List<BaseEntity> getCategories(int categoryId) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         List<BaseEntity> list = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery("Select Categories.ID, Categories.Name,Images.ImageData from Categories left join Images on (Categories.imageID = Images.ID) where Categories.parentID = ?", new String[]{String.valueOf(categoryId)});
         cursor.moveToFirst();
@@ -197,10 +172,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
-    public boolean havePictureOnDetailArgomento(int argomentoId) {
+    public static boolean havePictureOnDetailArgomento(int argomentoId) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Cursor cursor = sqLiteDatabase.rawQuery("Select Categories.ID, Categories.Name,Images.ImageData from Categories left join Images on (Categories.imageID = Images.ID) where Categories.parentID = ?", new String[]{String.valueOf(argomentoId)});
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -212,10 +189,12 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return false;
     }
 
-    public List<ExamsEntity> getExamList(int categoryId, int sheetNo) {
+    public static List<ExamsEntity> getExamList(int categoryId, int sheetNo) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         List<ExamsEntity> list = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery("Select Exams.QuestionNo, Questions.Question, Images.ImageData, Exams.Answer from Exams inner join Questions on Exams.QuestionID = Questions.ID left outer join Images on (Exams.ImageID = Images.ID) where Exams.CategoryID = ? and Exams.SheetNo = ? order by Exams.QuestionNo", new String[]{String.valueOf(categoryId), String.valueOf(sheetNo)});
         cursor.moveToFirst();
@@ -232,11 +211,13 @@ public class DataSource {
             cursor.moveToNext();
         }
         cursor.close();
+        closeConnection();
         return list;
     }
 
 
-    public Bitmap getImage(int imageId) {
+    public static Bitmap getImage(int imageId) {
+        SQLiteDatabase sqLiteDatabase = openConnection();
         Bitmap bitmap = null;
         Cursor cursor = sqLiteDatabase.rawQuery(" select Images.ImageData from Images where Images.ID = ?", new String[]{String.valueOf(imageId)});
         cursor.moveToFirst();
@@ -245,12 +226,7 @@ public class DataSource {
             bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
         }
         cursor.close();
-        return bitmap;
-    }
-
-
-    public void destroy() {
         closeConnection();
-        instance = null;
+        return bitmap;
     }
 }

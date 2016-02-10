@@ -9,6 +9,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
+import tatteam.com.app_common.util.AppConstant;
 import tatteam.com.app_common.util.AppLocalSharedPreferences;
 
 /**
@@ -18,15 +19,17 @@ public class AdsSmallBannerHandler extends AdListener {
     private AdView adView;
     private ViewGroup adsContainer;
     private Context context;
+    private AppConstant.AdsType adsType;
 
-    public AdsSmallBannerHandler(Context context, ViewGroup adsContainer) {
+    public AdsSmallBannerHandler(Context context, ViewGroup adsContainer, AppConstant.AdsType adsType) {
         this.context = context;
         this.adsContainer = adsContainer;
+        this.adsType = adsType;
     }
 
     public void setup() {
-        if (this.adsContainer != null) {
-            String unitId = AppLocalSharedPreferences.getInstance().getAdsIdSmallBanner();
+        if (this.adsContainer != null && this.adsType != null) {
+            String unitId = AppLocalSharedPreferences.getInstance().getAdsId(this.adsType);
             if (!unitId.trim().isEmpty()) {
                 this.adView = new AdView(this.context);
                 this.adView.setAdSize(AdSize.SMART_BANNER);

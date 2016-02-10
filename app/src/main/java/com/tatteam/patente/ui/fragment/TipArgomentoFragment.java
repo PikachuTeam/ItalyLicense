@@ -75,7 +75,7 @@ public class TipArgomentoFragment extends BaseFragment {
         if (dataBundle != null) {
             int categoryId = dataBundle.getInt(BUNDLE_CATEGORY_ID, -1);
             String name = dataBundle.getString(BUNDLE_CATEGORY_NAME, "");
-            tipAgromentoEntity = DataSource.getInstance().getTipAgromento(categoryId);
+            tipAgromentoEntity = DataSource.getTipAgromento(categoryId);
             tipAgromentoEntity.name = name;
         }
     }

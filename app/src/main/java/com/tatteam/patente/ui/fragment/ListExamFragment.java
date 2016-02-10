@@ -80,11 +80,11 @@ public class ListExamFragment extends BaseFragment implements GroupExamDialog.On
 
     private void reloadList() {
         if (groupExamIndex == -1) {
-            currentListExam = DataSource.getInstance().getListExam(categoryId);
+            currentListExam = DataSource.getListExam(categoryId);
         } else {
             int fromSheetNo = subListExam.get(groupExamIndex).get(0).sheetNo;
             int toSheetNo = subListExam.get(groupExamIndex).get(subListExam.get(groupExamIndex).size() - 1).sheetNo;
-            currentListExam = DataSource.getInstance().getListExam(categoryId, fromSheetNo, toSheetNo);
+            currentListExam = DataSource.getListExam(categoryId, fromSheetNo, toSheetNo);
         }
         adapter = new ListExamAdapter(getActivity(), this, currentListExam);
         listView.setAdapter(adapter);
@@ -92,7 +92,7 @@ public class ListExamFragment extends BaseFragment implements GroupExamDialog.On
 
     private void groupExams() {
         if (listExam == null || listExam.isEmpty()) {
-            listExam = DataSource.getInstance().getListExam(categoryId);
+            listExam = DataSource.getListExam(categoryId);
             currentListExam = listExam;
         }
         subListExam = new ArrayList<>();
@@ -133,7 +133,7 @@ public class ListExamFragment extends BaseFragment implements GroupExamDialog.On
                 DoExamsFragment fragment = new DoExamsFragment();
                 Bundle dataBundle = new Bundle();
                 dataBundle.putInt(BUNDLE_CATEGORY_ID, categoryId);
-                dataBundle.putInt(BUNDLE_SHEET_NO, DataSource.getInstance().getRandomSheetNo(categoryId));
+                dataBundle.putInt(BUNDLE_SHEET_NO, DataSource.getRandomSheetNo(categoryId));
                 fragment.setArguments(dataBundle);
                 replaceFragment(fragment, DoExamsFragment.class.getSimpleName(), DoExamsFragment.TRANSCATION_NAME);
             }
@@ -143,7 +143,7 @@ public class ListExamFragment extends BaseFragment implements GroupExamDialog.On
     @Override
     protected void setupActionBar(ActionBar actionBar) {
         super.setupActionBar(actionBar);
-        actionBar.setTitle(actionBarTitle);
+        actionBar.setTitle(R.string.title_main_menu_item_1);
     }
 
     @Override

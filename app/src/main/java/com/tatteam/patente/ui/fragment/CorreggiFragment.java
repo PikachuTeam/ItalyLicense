@@ -73,7 +73,7 @@ public class CorreggiFragment extends BaseFragment implements View.OnClickListen
 
         loadData();
         SheetEntity sheetEntity = new SheetEntity(categoryId, sheetNo, listExams.size(), listExamsCorrect.size(), duration);
-        DataSource.getInstance().saveLastScoreInfo(sheetEntity);
+        DataSource.saveLastScoreInfo(sheetEntity);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class CorreggiFragment extends BaseFragment implements View.OnClickListen
             categoryId = dataBundle.getInt(BUNDLE_CATEGORY_ID, -1);
             sheetNo = dataBundle.getInt(BUNDLE_SHEET_NO, -1);
             duration = dataBundle.getInt(BUNDLE_TIME, -1);
-            listExams = DataSource.getInstance().getExamList(categoryId, sheetNo);
+            listExams = DataSource.getExamList(categoryId, sheetNo);
             int[] answers = dataBundle.getIntArray(BUNDLE_ANSWER);
             for (int i = 0; i < listExams.size(); i++) {
                 ExamsEntity examsEntity = listExams.get(i);

@@ -13,10 +13,7 @@ public class AppLocalSharedPreferences {
     private static final String PREF_LAUNCH_TIME = "app_launch_time";
     private static final String PREF_RATE_APP = "app_rate";
     private static final String PREF_RATE_INTERVAL = "app_rate_interval";
-    private static final String PREF_APP_CONFIG = "app_config";
-    private static final String PREF_APP_CONFIG_INTERVAL = "app_config_interval";
     private static final String PREF_MY_EXTRA_APPS = "my_extra_apps";
-    private static final String PREF_ADS_ID_SMALL_BANNER = "ads_id_small_banner";
 
     private static AppLocalSharedPreferences instance;
     private SharedPreferences pref;
@@ -39,17 +36,9 @@ public class AppLocalSharedPreferences {
         }
     }
 
-    public String getLocalAppConfigString() {
-        return pref.getString(PREF_APP_CONFIG, null);
-    }
-
-    public void setLocalAppConfig(String jSon) {
-        editor.putString(PREF_APP_CONFIG, jSon);
-        editor.commit();
-    }
 
     public String getMyExtraAppsString() {
-        return pref.getString(PREF_MY_EXTRA_APPS, null);
+        return pref.getString(PREF_MY_EXTRA_APPS, "");
     }
 
     public void setMyExtraApps(String jSon) {
@@ -101,43 +90,35 @@ public class AppLocalSharedPreferences {
         return getAppLaunchTime() >= threshold;
     }
 
-    //app config
-    public void setSyncAppConfigInterval() {
-        editor.putLong(PREF_APP_CONFIG_INTERVAL, (new Date()).getTime());
-        editor.commit();
-    }
-
-    public long getSyncAppConfigInterval() {
-        return pref.getLong(PREF_APP_CONFIG_INTERVAL, 0L);
-    }
-
-    public boolean isSyncAppConfigOverDate(int threshold) {
-        return (new Date()).getTime() - getSyncAppConfigInterval() >= (long) (threshold * 24 * 60 * 60 * 1000);
-    }
-
-    public boolean shouldSyncAppConfig(int threshold) {
-        return (getLocalAppConfigString() == null || isSyncAppConfigOverDate(threshold));
-    }
 
     // ads
-    public void setAdsIdSmallBanner(String adsId) {
-        editor.putString(PREF_ADS_ID_SMALL_BANNER, adsId);
+    public boolean shouldSyncAds(int afterEachLaunchTime, AppConstant.AdsType... adsTypes) {
+        if (getAppLaunchTime() % afterEachLaunchTime == 0) {
+            return true;
+        }
+        for (AppConstant.AdsType adsType : adsTypes) {
+            if (getAdsId(adsType).trim().isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public void setAdsId(AppConstant.AdsType adsType, String adsId) {
+        editor.putString(adsType.getType(), adsId);
         editor.commit();
     }
 
-    public String getAdsIdSmallBanner() {
-        return pref.getString(PREF_ADS_ID_SMALL_BANNER, "");
+    public String getAdsId(AppConstant.AdsType adsType) {
+        return pref.getString(adsType.getType(), "");
     }
 
-    public boolean shouldSyncAds(int afterEachLaunchTime) {
-        return getAdsIdSmallBanner().trim().isEmpty() || (getAppLaunchTime() % afterEachLaunchTime == 0);
+    public void removeAdsId(AppConstant.AdsType adsType) {
+        setAdsId(adsType, "");
     }
 
-    public void removeAdsIdSmallBanner(){
-        setAdsIdSmallBanner("");
-    }
-
-
+    ///////
     public void destroy() {
         instance = null;
     }

@@ -5,6 +5,7 @@ import android.content.Context;
 
 import hotchemi.android.rate.AppRate;
 import hotchemi.android.rate.OnClickButtonListener;
+import tatteam.com.app_common.R;
 
 /**
  * Created by ThanhNH on 10/8/2015.
@@ -76,6 +77,10 @@ public class CloseAppHandler {
                 listener.onTryToCloseApp();
             }
         }
+    }
+
+    public String getDefaultExitMessage() {
+        return context.getString(R.string.message_exit);
     }
 
     public int getRateAppOverDate() {

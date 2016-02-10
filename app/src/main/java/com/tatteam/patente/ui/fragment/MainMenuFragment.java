@@ -62,7 +62,7 @@ public class MainMenuFragment extends BaseFragment {
             public void onClick(View v) {
                 DoExamsFragment fragment = new DoExamsFragment();
                 int categoryId = UserManager.getInstance().isLicenseTypeB() ? DataSource.B_PARENT_ID_Simulazione_quiz : DataSource.AM_PARENT_ID_Simulazione_quiz;
-                int sheetNo = DataSource.getInstance().getRandomSheetNo(categoryId);
+                int sheetNo = DataSource.getRandomSheetNo(categoryId);
                 Bundle dataBundle = new Bundle();
                 dataBundle.putInt(BUNDLE_CATEGORY_ID,categoryId);
                 dataBundle.putInt(BUNDLE_SHEET_NO,sheetNo);
@@ -75,7 +75,8 @@ public class MainMenuFragment extends BaseFragment {
     @Override
     protected void setupActionBar(ActionBar actionBar) {
         super.setupActionBar(actionBar);
-        actionBar.setTitle(R.string.home);
+        String actionBarTitle = UserManager.getInstance().isLicenseTypeB() ? getString(R.string.patente_b) : getString(R.string.patente_am);
+        actionBar.setTitle(actionBarTitle);
     }
 
 }

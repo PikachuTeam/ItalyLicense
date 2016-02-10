@@ -56,4 +56,8 @@
     <string name="dialog_finish_message">Hai risposto a {0} domande su {1}</string>
 
     <string name="close_message">Premere di nuovo per uscire</string>
+
+    <string name="title_main_menu_item_1">Scheda</string>
+    <string name="title_main_menu_item_2">Quiz Per Argomento</string>
+    <string name="title_main_menu_item_3">Lista Delle Domande</string>
 </resources>

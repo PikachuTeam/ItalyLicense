@@ -1,73 +1,43 @@
 package com.tatteam.patente.ui;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 
 import com.tatteam.patente.R;
 import com.tatteam.patente.control.LocalSharedPreferManager;
-import com.tatteam.patente.database.DataSource;
 
 import tatteam.com.app_common.AppCommon;
+import tatteam.com.app_common.sqlite.DatabaseLoader;
+import tatteam.com.app_common.ui.activity.BaseSplashActivity;
 import tatteam.com.app_common.util.AppConstant;
 
 
-public class SplashActivity extends Activity {
-    private static final long SPLASH_DURATION = 2000;
-    private Handler handler;
-    private boolean isDatabaseImported = false;
-    private boolean isWaitingInitData = false;
+public class SplashActivity extends BaseSplashActivity {
+    @Override
+    protected int getLayoutResIdContentView() {
+        return R.layout.activity_splash;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+    protected void onCreateContentView() {
 
+    }
+
+    @Override
+    protected void onInitAppCommon() {
         AppCommon.getInstance().initIfNeeded(getApplicationContext());
         AppCommon.getInstance().increaseLaunchTime();
-        AppCommon.getInstance().syncAdsSmallBannerIfNeeded(AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
+        AppCommon.getInstance().syncAdsIfNeeded(AppConstant.AdsType.SMALL_BANNER_TEST, AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
 
         LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
-        DataSource.getInstance().initIfNeeded(getApplicationContext());
 
-
-        importDatabase();
-        handler = new Handler(new Handler.Callback() {
-            @Override
-            public boolean handleMessage(Message msg) {
-                if (isDatabaseImported) {
-                    isDatabaseImported = false;
-                    switchToChooseTargetActivity();
-                } else {
-                    isWaitingInitData = true;
-                }
-                return false;
-            }
-        });
-        handler.sendEmptyMessageDelayed(0, SPLASH_DURATION);
+        DatabaseLoader.getInstance().createIfNeeded(getApplicationContext(), "drivingquiz.db");
     }
 
-    private void importDatabase() {
-        AsyncTask task = new AsyncTask() {
-            @Override
-            protected Object doInBackground(Object[] params) {
-                DataSource.getInstance().createDatabaseIfNeed();
-                return null;
-            }
-
-            @Override
-            protected void onPostExecute(Object o) {
-                isDatabaseImported = true;
-                if (isWaitingInitData) {
-                    switchToChooseTargetActivity();
-                }
-            }
-        };
-        task.execute();
+    @Override
+    protected void onFinishInitAppCommon() {
+        switchToChooseTargetActivity();
     }
+
 
     private void switchToChooseTargetActivity() {
         startActivity(new Intent(SplashActivity.this, ChooseTargetActivity.class));
@@ -75,8 +45,4 @@ public class SplashActivity extends Activity {
         this.finish();
     }
 
-    @Override
-    public void onBackPressed() {
-//        super.onBackPressed();
-    }
 }

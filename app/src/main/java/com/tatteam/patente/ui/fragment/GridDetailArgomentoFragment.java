@@ -51,7 +51,7 @@ public class GridDetailArgomentoFragment extends BaseFragment {
         Bundle dataBundle = getArguments();
         if (dataBundle != null) {
             int categoryId = dataBundle.getInt(BUNDLE_CATEGORY_ID,-1);
-            listArgomento = DataSource.getInstance().getCategories(categoryId);
+            listArgomento = DataSource.getCategories(categoryId);
         }
     }
 

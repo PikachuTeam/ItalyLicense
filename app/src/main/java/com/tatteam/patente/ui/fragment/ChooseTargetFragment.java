@@ -88,7 +88,7 @@ public class ChooseTargetFragment extends BaseFragment implements ViewPager.OnPa
         textViewRemoveAds.setPaintFlags(textViewFeedback.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         if (LocalSharedPreferManager.getInstance().isPurchased()) {
-//            layoutRemoveAds.setVisibility(View.GONE);
+            layoutRemoveAds.setVisibility(View.GONE);
         } else {
             layoutRemoveAds.setVisibility(View.VISIBLE);
         }
