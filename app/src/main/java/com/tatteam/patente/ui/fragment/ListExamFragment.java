@@ -222,6 +222,7 @@ public class ListExamFragment extends BaseFragment implements GroupExamDialog.On
 //                String message = getContext().getString(R.string.last_exam_info)+" "
                 vh.textViewLastScore.setText("Risultato dell'ultimo esame: " + StringUtil.formatNumber(entity.totalCorrectAnswer) + "/" + StringUtil.formatNumber(entity.totalQuestion));
             }
+            vh.textViewLastScore.setSelected(true);
 
             View viewHeighLight = vh.rootView.findViewById(R.id.view_highlight);
             viewHeighLight.setTag(entity);

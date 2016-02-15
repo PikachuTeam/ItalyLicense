@@ -45,6 +45,11 @@
         android:layout_marginLeft="@dimen/list_exam_item_text_last_score_margin"
         android:layout_marginRight="@dimen/quiz_per_argomento_item_text_margin"
         android:textSize="@dimen/text_size_3"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
         android:textColor="@color/correggi_text_ques"/>
 
     <include layout="@layout/background_highlight"></include>

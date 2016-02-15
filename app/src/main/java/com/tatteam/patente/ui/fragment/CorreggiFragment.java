@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tatteam.patente.R;
+import com.tatteam.patente.app.BaseActivity;
 import com.tatteam.patente.app.BaseFragment;
 import com.tatteam.patente.control.UserManager;
 import com.tatteam.patente.database.DataSource;
@@ -30,6 +31,7 @@ import com.tatteam.patente.utility.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by ThanhNH on 2/9/2015.
@@ -70,6 +72,7 @@ public class CorreggiFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((BaseActivity) getActivity()).showBigAdsIfNeeded();
 
         loadData();
         SheetEntity sheetEntity = new SheetEntity(categoryId, sheetNo, listExams.size(), listExamsCorrect.size(), duration);

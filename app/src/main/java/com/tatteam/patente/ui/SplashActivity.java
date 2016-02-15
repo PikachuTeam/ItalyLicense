@@ -26,7 +26,7 @@ public class SplashActivity extends BaseSplashActivity {
     protected void onInitAppCommon() {
         AppCommon.getInstance().initIfNeeded(getApplicationContext());
         AppCommon.getInstance().increaseLaunchTime();
-        AppCommon.getInstance().syncAdsIfNeeded(AppConstant.AdsType.SMALL_BANNER_TEST, AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
+        AppCommon.getInstance().syncAdsIfNeeded(AppConstant.AdsType.BIG_BANNER_DRIVING_TEST, AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
 
         LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
 

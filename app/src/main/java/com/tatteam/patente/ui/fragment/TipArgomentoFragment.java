@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tatteam.patente.R;
+import com.tatteam.patente.app.BaseActivity;
 import com.tatteam.patente.app.BaseFragment;
 import com.tatteam.patente.database.DataSource;
 import com.tatteam.patente.entity.BaseEntity;
@@ -39,6 +40,8 @@ public class TipArgomentoFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ((BaseActivity) getActivity()).showBigAdsIfNeeded();
+
         loadData();
     }
 

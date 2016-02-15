@@ -37,8 +37,8 @@
     <string name="correggi_share">Condivide sul</string>
     <string name="correggi_group_right">Rispondi giusti</string>
     <string name="correggi_group_wrong">Rispondi falsi</string>
-    <string name="pass_exam">PROMOSSO!</string>
-    <string name="not_pass_exam">BOCCIATO!</string>
+    <string name="pass_exam">PROMOSSO! </string>
+    <string name="not_pass_exam">BOCCIATO! </string>
     <string name="error">Errori</string>
     <string name="duration">IL Teampo</string>
     <string name="your_answer">Tuo risponde: </string>

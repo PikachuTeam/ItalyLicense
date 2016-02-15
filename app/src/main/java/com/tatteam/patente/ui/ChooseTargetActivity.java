@@ -82,7 +82,7 @@ public class ChooseTargetActivity extends BaseActivity implements CloseAppHandle
 
     @Override
     public void onBackPressed() {
-        closeAppHandler.handlerKeyBack(this);
+        closeAppHandler.setKeyBackPress(this);
     }
 
 

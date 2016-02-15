@@ -14,7 +14,7 @@ public interface AppConstant {
     String DEFAULT_ADS_URL = "https://www.dropbox.com/s/2fy36ay5po304eo/my_ads.txt?dl=1";
     String DEFAULT_MORE_APP_URL = "https://www.dropbox.com/s/faa5s1wzl0izcg1/my_extra_apps.txt?dl=1";
 
-    int RE_SYNC_ADS_LAUNCH_TIME_INTERVAL = 4;
+    int RE_SYNC_ADS_LAUNCH_TIME_INTERVAL = 5;
 
     enum AdsType {
         //test banner

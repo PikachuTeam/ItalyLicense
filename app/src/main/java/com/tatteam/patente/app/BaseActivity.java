@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.tatteam.patente.R;
 import com.tatteam.patente.control.LocalSharedPreferManager;
 
+import tatteam.com.app_common.ads.AdsBigBannerHandler;
 import tatteam.com.app_common.ads.AdsSmallBannerHandler;
 import tatteam.com.app_common.util.AppConstant;
 
@@ -21,27 +22,54 @@ import tatteam.com.app_common.util.AppConstant;
  * Created by ThanhNH on 2/1/2015.
  */
 public abstract class BaseActivity extends FragmentActivity {
+    private static final int BIG_ADS_SHOWING_PERIOD = 5;
+    private static int BIG_ADS_SHOWING_COUNTER = 1;
+
+    private AdsSmallBannerHandler adsSmallBannerHandler;
+    private AdsBigBannerHandler adsBigBannerHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-        this.setupAdView();
+        this.setupAds();
         addFragmentContent();
+    }
+
+
+    private void setupAds() {
+        if (enableAdMod() && !LocalSharedPreferManager.getInstance().isPurchased()) {
+            ViewGroup adsContainer = (ViewGroup) findViewById(R.id.ads_container);
+            adsSmallBannerHandler = new AdsSmallBannerHandler(this, adsContainer, AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
+            adsSmallBannerHandler.setup();
+
+            adsBigBannerHandler = new AdsBigBannerHandler(this, AppConstant.AdsType.BIG_BANNER_DRIVING_TEST);
+            adsBigBannerHandler.setup();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    }
-
-    private void setupAdView() {
-        if (enableAdMod() && !LocalSharedPreferManager.getInstance().isPurchased()) {
-            ViewGroup adsContainer = (ViewGroup) findViewById(R.id.ads_container);
-            AdsSmallBannerHandler adsHandler = new AdsSmallBannerHandler(this, adsContainer, AppConstant.AdsType.SMALL_BANNER_DRIVING_TEST);
-            adsHandler.setup();
+        if (adsSmallBannerHandler != null) {
+            adsSmallBannerHandler.destroy();
+        }
+        if (adsBigBannerHandler != null) {
+            adsBigBannerHandler.destroy();
         }
     }
 
+    public void showBigAdsIfNeeded() {
+        if (enableAdMod() && !LocalSharedPreferManager.getInstance().isPurchased() && adsBigBannerHandler != null) {
+            if (BIG_ADS_SHOWING_COUNTER % BIG_ADS_SHOWING_PERIOD == 0) {
+                try {
+                    adsBigBannerHandler.show();
+                } catch (Exception ex) {
+                }
+            }
+            BIG_ADS_SHOWING_COUNTER++;
+        }
+    }
 
     @Override
     public void finish() {
