@@ -2,6 +2,7 @@ package com.tatteam.patente.ui.fragment;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.view.PagerAdapter;
@@ -26,6 +27,7 @@ import com.tatteam.patente.entity.BaseEntity;
 import com.tatteam.patente.entity.ExamsEntity;
 import com.tatteam.patente.ui.widget.ConfirmDialog;
 import com.tatteam.patente.ui.widget.QuesNoItemWrapper;
+import com.tatteam.patente.ui.widget.SignDialog;
 import com.tatteam.patente.utility.StringUtil;
 
 import java.text.MessageFormat;
@@ -416,13 +418,25 @@ public class DoExamsFragment extends BaseFragment implements QuesNoItemWrapper.O
             ExamsEntity entity = data.get(position);
             TextView textViewTarget = (TextView) view.findViewById(R.id.textView_target);
             ImageView imageViewTarget = (ImageView) view.findViewById(R.id.image_tagert);
+            View layoutTarget = view.findViewById(R.id.layout_target);
+
             textViewTarget.setText(entity.question);
             if (entity.image != null) {
-                imageViewTarget.setVisibility(View.VISIBLE);
+                layoutTarget.setVisibility(View.VISIBLE);
                 imageViewTarget.setImageBitmap(entity.image);
             } else {
-                imageViewTarget.setVisibility(View.INVISIBLE);
+                layoutTarget.setVisibility(View.INVISIBLE);
             }
+            View viewHighLight = view.findViewById(R.id.view_highlight);
+            viewHighLight.setTag(entity.image);
+            viewHighLight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bitmap bitmap = (Bitmap) v.getTag();
+                    SignDialog dialog = new SignDialog(getActivity(), bitmap);
+                    dialog.show();
+                }
+            });
             ((ViewPager) container).addView(view);
             return view;
         }

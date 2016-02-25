@@ -19,6 +19,7 @@ public class ClientApp extends Application {
         super.onCreate();
         LocalSharedPreferManager.getInstance().initIfNeeded(getApplicationContext());
         AppCommon.getInstance().initIfNeeded(getApplicationContext());
+        DatabaseLoader.getInstance().restoreState(getApplicationContext());
     }
     @Override
     public void onTerminate() {

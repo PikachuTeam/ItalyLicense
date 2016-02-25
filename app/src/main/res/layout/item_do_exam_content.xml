@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/image_tagert"
-        android:src="@drawable/test_image"
-        android:layout_width="@dimen/do_exam_item_content_image_height"
+    <RelativeLayout
+        android:id="@+id/layout_target"
+        android:layout_width="@dimen/list_exam_dialog_group_height"
         android:layout_height="@dimen/do_exam_item_content_image_height"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/common_size_5"
+        android:paddingRight="@dimen/common_size_5">
 
+        <ImageView
+            android:id="@+id/image_tagert"
+            android:layout_width="@dimen/do_exam_item_content_image_height"
+            android:layout_height="@dimen/do_exam_item_content_image_height"
+            android:layout_centerInParent="true"
+            android:src="@drawable/test_image" />
+
+        <ImageView
+            android:layout_width="@dimen/common_size_25"
+            android:layout_height="@dimen/common_size_25"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/glass_zoom" />
+
+        <include layout="@layout/background_highlight"></include>
+    </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView"
-        android:layout_marginTop="@dimen/do_exam_item_content_text_margin"
         android:layout_marginLeft="@dimen/do_exam_item_content_text_margin"
-        android:layout_marginRight="@dimen/do_exam_item_content_text_margin">
+        android:layout_marginRight="@dimen/do_exam_item_content_text_margin"
+        android:layout_marginTop="@dimen/do_exam_item_content_text_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,8 +47,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="text"
-                android:textSize="@dimen/text_size_5"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_5" />
         </LinearLayout>
     </ScrollView>
 

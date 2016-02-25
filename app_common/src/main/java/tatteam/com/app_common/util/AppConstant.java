@@ -27,7 +27,7 @@ public interface AppConstant {
 
         //language
         SMALL_BANNER_LANGUAGE_LEARNING("small_banner_language_learning"),
-        BIG_BANNER_LANGUAGE_LEARNING("big_banner_langauge_learning"),
+        BIG_BANNER_LANGUAGE_LEARNING("big_banner_language_learning"),
 
         //driving
         SMALL_BANNER_DRIVING_TEST("small_banner_driving_test"),
